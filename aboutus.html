@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Asha Resins Ltd – Know more about our legacy, team, infrastructure, and commitment to excellence in ion exchange resins and water treatment chemicals.">
+  <title>About Us | Asha Resins Limited</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"> <!-- Reuse your homepage styles -->
+</head>
+<style>
+    html, body {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f4f4f4;
+}
+
+.hero-carousel {
+  position: relative;
+  overflow: hidden;
+  height: 40vh;
+  border-radius: 16px;
+  margin: 2rem auto;
+  max-width: 1400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 0;
+  animation: zoom-bg 30s ease-in-out infinite;
+}
+
+@keyframes zoom-bg {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.hero-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  color: #fff;
+  text-align: center;
+  max-width: 700px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.hero-content h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  background: #0066cc;
+  color: white;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #004d99;
+}
+
+.hero-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+.hero-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.hero-dot.active, .hero-dot:hover {
+  background: #0066cc;
+}
+
+header {
+  background: #003366;
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header h1 {
+  font-size: 1.8rem;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #f0c040;
+}
+
+section {
+  padding: 4rem 2rem;
+  margin: 3rem auto; /* Adds spacing between sections */
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  max-width: 1200px;
+}
+
+@media (max-width: 768px) {
+  section {
+    margin: 2rem 1rem;
+    padding: 3rem 1.5rem;
+  }
+}
+
+
+section:nth-of-type(even) {
+  background: #f9fafc;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 3rem auto; /* Controls spacing between sections */
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #003366;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 2rem;
+  row-gap: 4rem; /* Increased vertical space between rows */
+  padding-bottom: 2rem;
+}
+
+/* Ensure all product cards have same height and spacing */
+.product {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+}
+
+.product img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.product h3 {
+  font-size: 1.2rem;
+  color: #003366;
+  margin-bottom: 0.5rem;
+}
+
+.product p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: auto;
+}
+
+.product .btn {
+  margin-top: 1.5rem;
+  align-self: center;
+  background: #0066cc;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.product .btn:hover {
+  background: #004d99;
+}
+
+
+.client-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.client-logos img {
+  max-height: 70px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.client-logos a:hover img {
+  transform: scale(1.05);
+}
+
+.testimonial {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  text-align: center;
+  font-style: italic;
+}
+
+.newsletter input[type="email"] {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 70%;
+  margin-right: 0.5rem;
+}
+
+.newsletter button {
+  padding: 0.6rem 1.5rem;
+  background: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact {
+  text-align: center;
+}
+
+.contact iframe {
+  width: 100%;
+  border: 0;
+  height: 300px;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.team-grid, .faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.team-member, .faq {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+footer {
+  background: #003366;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+margin-bottom: 80px;
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 0.8rem 1rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  z-index: 999; /* Keep it above everything else */
+}
+
+@media screen and (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 90px; /* Push up more on small screens */
+    right: 15px;
+  }
+}
+
+.features-section {
+  background: #fdfefe;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.feature-box {
+  background: #e6f0ff;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+  transition: transform 0.3s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-4px);
+}
+
+.feature-box h4 {
+  color: #003366;
+  margin-bottom: 0.5rem;
+}
+
+.certifications {
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.certification-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.certification-logos a {
+  display: inline-block;
+}
+
+.certification-logos img {
+  max-height: 80px;
+  width: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.certification-logos img:hover {
+  transform: scale(1.1);
+}
+
+.cta-banner {
+  background: linear-gradient(90deg, #0066cc, #004080);
+  color: white;
+  text-align: center;
+}
+
+.cta-banner h2 {
+  margin-bottom: 1rem;
+}
+
+.cta-banner a {
+  background: white;
+  color: #0066cc;
+  padding: 0.8rem 2rem;
+  font-weight: bold;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.cta-banner a:hover {
+  background: #e6e6e6;
+}
+
+.dealer-form {
+  max-width: 700px;
+  background: #fff;
+  padding: 2rem;
+  margin: auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  border-radius: 10px;
+}
+
+.dealer-form input,
+.dealer-form textarea,
+.dealer-form button {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.dealer-form button {
+  background: #0066cc;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dealer-form button:hover {
+  background: #004d99;
+}
+.custom-footer {
+  background-color: #1b2430; /* dark bluish-gray for modern and logo-friendly contrast */
+  color: #f0f0f0;
+  font-size: 0.95rem;
+  position: relative;
+  margin-top: 3rem;
+}
+
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-top {
+  text-align: center;
+}
+
+.footer-logo {
+  max-height: 60px;
+  margin-bottom: 1rem;
+}
+
+.footer-top p {
+  color: #ddd;
+  margin: 0 auto;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.footer-links div {
+  flex: 1;
+  min-width: 180px;
+}
+
+.footer-links h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  color: #003366;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-contact p, .footer-contact a {
+  color: #ccc;
+}
+
+.footer-social a {
+  color: #ccc;
+  font-size: 1.1rem;
+  text-decoration: none;
+  margin-right: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #f0c040;
+}
+
+footer hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 2rem 0 1rem;
+}
+
+footer .copyright {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.footer-logo {
+  max-height: 60px;
+  margin-bottom: 1rem;
+  filter: brightness(1.1);
+}
+
+.footer-links h4 {
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.footer-links a,
+.footer-contact a,
+.footer-social a {
+  color: #cccccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover,
+.footer-social a:hover {
+  color: #ff4d4d; /* red tone to match your logo */
+}
+.product .btn {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.5rem;
+  background: #0066cc;
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s ease;
+}
+
+.product .btn:hover {
+  background: #004c99;
+}
+
+</style>
+
+<a href="#" class="back-to-top" aria-label="Back to top">
+  <i class="bi bi-arrow-up-circle-fill"></i>
+</a>
+
+<style>
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    font-size: 2rem;
+    color: #0066cc;
+    background: #ffffff;
+    border-radius: 50%;
+    padding: 0.5rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    z-index: 999;
+    text-align: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  .back-to-top:hover {
+    color: #004d99;
+    background: #f0f0f0;
+  }
+.timeline-section {
+      background: #f5f9ff;
+      padding: 4rem 2rem;
+    }
+    .timeline-container {
+      position: relative;
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem 0;
+    }
+    .timeline-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: #0066cc;
+      transform: translateX(-50%);
+      z-index: 0;
+    }
+    .timeline-item {
+      position: relative;
+      width: 100%;
+      margin: 4rem 0;
+      display: flex;
+      align-items: center;
+    }
+    .timeline-bullet {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 20px;
+      background: #0066cc;
+      border-radius: 50%;
+      z-index: 2;
+      border: 4px solid #fff;
+      box-shadow: 0 0 0 2px #0066cc;
+    }
+    .timeline-content {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      padding: 1.5rem;
+      width: 45%;
+      position: relative;
+      z-index: 1;
+    }
+    .timeline-content h4 {
+      margin-top: 0;
+      color: #003366;
+      font-weight: 600;
+    }
+    .timeline-content p {
+      margin: 0.5rem 0 0 0;
+    }
+    .timeline-left .timeline-content {
+      margin-right: auto;
+    }
+    .timeline-right .timeline-content {
+      margin-left: auto;
+    }
+    .timeline-left .timeline-bullet,
+    .timeline-right .timeline-bullet {
+      top: calc(50% - 10px);
+    }
+    @media (max-width: 768px) {
+      .timeline-content,
+      .timeline-left .timeline-content,
+      .timeline-right .timeline-content {
+        width: 100%;
+        margin: 2rem 0;
+      }
+      .timeline-line {
+        left: 20px;
+        transform: none;
+      }
+      .timeline-bullet {
+        left: 20px;
+      }
+    }
+header a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+  </style>
+<body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
+  <header>
+    <h1><a href="file:///Users/asharesins/Library/Mobile%20Documents/com~apple~TextEdit/Documents/asha.html">Asha Resins Ltd</a></h1>
+    <nav>
+      <a href="file:///Users/asharesins/Library/Mobile%20Documents/com~apple~TextEdit/Documents/aboutus.html">About</a>
+      <a href="file:///Users/asharesins/Library/Mobile%20Documents/com~apple~TextEdit/Documents/products.html#product-range">Products</a>
+      <a href="#clients">Clients</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#blogs">Blog</a>
+      <a href="#faq">FAQs</a>
+      <a href="#dealers">Dealers</a>
+      <a href="#contact">Contact</a>
+      <a href="#" onclick="openModal()">Enquire</a>
+    </nav>
+  </header>
+
+  <section class="hero-carousel" style="height: 40vh;">
+    <div class="hero-slide active" style="background-image: url('https://static.wixstatic.com/media/7479b5_62eccfbfe9984e06b1fbaa8dcb1bbac4~mv2.png');">
+      <div class="hero-content">
+        <h2>Our Story. Our Strength.</h2>
+        <p>Explore the journey of Asha Resins — Built on trust, driven by innovation.</p>
+      </div>
+    </div>
+  </section>
+
+    <section class="container" style="background: #ffffff; padding: 4rem 2rem;">
+    <h2 class="section-title" data-aos="fade-up"><i class="bi bi-info-circle-fill"></i> Who We Are</h2>
+    <div class="highlight-box" style="max-width: 1000px; margin: auto; text-align: center;" data-aos="fade-up" data-aos-delay="100">
+      <p style="font-size: 1.05rem; line-height: 1.7;">
+        <strong>Asha Resins Limited</strong> is a pioneering Indian manufacturer of <strong>ion exchange resins</strong> and <strong>specialty water treatment chemicals</strong>, serving diverse sectors including <em>sugar, water treatment, pharmaceuticals, refineries, and OEMs</em> since 1996. With our headquarters in Pune and a state-of-the-art manufacturing facility in Dhanore (Maharashtra), we combine deep industry experience with modern R&D-driven production to deliver high-performance chemical solutions.
+      </p>
+    </div>
+
+    <div class="features-grid" style="margin-top: 3rem;">
+      <div class="feature-box" data-aos="zoom-in" data-aos-delay="200">
+        <h4><i class="bi bi-gear-wide-connected"></i> Advanced Manufacturing</h4>
+        <p>Equipped with German GLRs, quality control systems, and automation — ensuring precision and scale.</p>
+      </div>
+      <div class="feature-box" data-aos="zoom-in" data-aos-delay="300">
+        <h4><i class="bi bi-globe2"></i> Global Reach</h4>
+        <p>Trusted by clients across the USA, France, Asia, and the Middle East. Expanding rapidly through exports and channel partnerships.</p>
+      </div>
+      <div class="feature-box" data-aos="zoom-in" data-aos-delay="400">
+        <h4><i class="bi bi-award"></i> Quality Certifications</h4>
+        <p>ISO 9001:2015 certified with a focus on sustainable, REACH-ready formulations and industry best practices.</p>
+      </div>
+      <div class="feature-box" data-aos="zoom-in" data-aos-delay="500">
+        <h4><i class="bi bi-shield-check"></i> Brand Ownership</h4>
+        <p>All products marketed under our own registered brand <strong>ASHAION®</strong>, with a focus on building long-term equity and trust.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+    <section class="timeline-section">
+    <h2 class="section-title" style="text-align: center;" data-aos="fade-up"><i class="bi bi-clock-history"></i> Our Journey</h2>
+    <div class="timeline-container">
+      <div class="timeline-line"></div>
+
+      <div class="timeline-item timeline-left" data-aos="fade-right">
+        <div class="timeline-bullet"></div>
+        <div class="timeline-content">
+          <h4>1996</h4>
+          <p>Asha Resins founded by Mr. Kiran Karnawat.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item timeline-right" data-aos="fade-left">
+        <div class="timeline-bullet"></div>
+        <div class="timeline-content">
+          <h4>2000</h4>
+          <p>Launched the Sugar Process Chemical Division.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item timeline-left" data-aos="fade-right">
+        <div class="timeline-bullet"></div>
+        <div class="timeline-content">
+          <h4>2008</h4>
+          <p><strong>3x capacity expansion</strong> with the first plant upgrade.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item timeline-right" data-aos="fade-left">
+        <div class="timeline-bullet"></div>
+        <div class="timeline-content">
+          <h4>2015</h4>
+          <p>Second plant expansion, <strong>doubling capacity</strong> again.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item timeline-left" data-aos="fade-right">
+        <div class="timeline-bullet"></div>
+        <div class="timeline-content">
+          <h4>2016</h4>
+          <p>Entered global markets with the <strong>first export</strong> to a global leader in USA.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item timeline-right" data-aos="fade-left">
+        <div class="timeline-bullet"></div>
+        <div class="timeline-content">
+          <h4>2018</h4>
+          <p>Established a comprehensive <strong>dealer network</strong> across South India.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item timeline-left" data-aos="fade-right">
+        <div class="timeline-bullet"></div>
+        <div class="timeline-content">
+          <h4>2024</h4>
+          <p>Transitioned to Asha Resins Limited, reflecting growth and ambition.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item timeline-right" data-aos="fade-left">
+        <div class="timeline-bullet"></div>
+        <div class="timeline-content">
+          <h4>2024 & Beyond</h4>
+          <p>Ongoing capacity expansion to <strong>2x current production</strong>.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+ <section class="container" style="background: #f9fbfd; padding: 4rem 2rem;">
+    <h2 class="section-title" data-aos="fade-up"><i class="bi bi-people-fill"></i> Meet Our Leadership</h2>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem auto; font-size: 1.05rem;" data-aos="fade-up" data-aos-delay="100">
+      Our leadership team brings together decades of experience in manufacturing, strategy, and innovation — committed to building a globally recognized chemical brand from India.
+    </p>
+    <div class="team-grid">
+      <div class="team-member" data-aos="zoom-in" data-aos-delay="200">
+        <img src="https://via.placeholder.com/150" alt="Kiran Karnawat" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin-bottom: 1rem;">
+        <h4>Kiran Karnawat</h4>
+        <p><strong>Chairman & MD</strong><br>Guiding the company’s growth with over 35 years of experience in chemicals and production. Known for his foresight and relentless execution.</p>
+      </div>
+      <div class="team-member" data-aos="zoom-in" data-aos-delay="300">
+        <img src="https://via.placeholder.com/150" alt="Seema Karnawat" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin-bottom: 1rem;">
+        <h4>Seema Karnawat</h4>
+        <p><strong>Director</strong><br>Supports regulatory, administrative and long-term planning, ensuring compliance and operational alignment.</p>
+      </div>
+      <div class="team-member" data-aos="zoom-in" data-aos-delay="400">
+        <img src="https://via.placeholder.com/150" alt="Veeram Karnawat" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin-bottom: 1rem;">
+        <h4>Veeram Karnawat</h4>
+        <p><strong>Business Head</strong><br>Leads branding, international market expansion, and strategic partnerships with a modern and digital-first approach.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container features-section" style="background: linear-gradient(to right, #eef3f7, #f5faff); padding: 4rem 2rem;">
+    <h2 class="section-title" data-aos="fade-up">What Sets Us Apart</h2>
+    <div class="features-grid">
+      <div class="feature-box" data-aos="zoom-in" data-aos-delay="100">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;"><i class="bi bi-lightbulb"></i></div>
+        <h4>R&D and Customization</h4>
+        <p>We develop tailored chemical solutions based on specific client needs with our in-house R&D and testing lab.</p>
+      </div>
+      <div class="feature-box" data-aos="zoom-in" data-aos-delay="200">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;"><i class="bi bi-buildings"></i></div>
+        <h4>Modern Manufacturing</h4>
+        <p>Our plant is equipped with German Glass-Lined Reactors, precision controls, and automated packaging systems.</p>
+      </div>
+      <div class="feature-box" data-aos="zoom-in" data-aos-delay="300">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;"><i class="bi bi-patch-check"></i></div>
+        <h4>Uncompromised Quality</h4>
+        <p>Each batch undergoes rigorous testing protocols ensuring high purity, consistency, and traceability.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="container" style="background: linear-gradient(to right, #ffffff, #f3faff); padding: 4rem 2rem;">
+    <h2 class="section-title" data-aos="fade-up"><i class="bi bi-eye-fill"></i> Our Vision, Mission & Values</h2>
+    <div style="max-width: 900px; margin: auto; text-align: center;">
+      <p data-aos="fade-up" data-aos-delay="100" style="font-size: 1.1rem; line-height: 1.7;">
+        Our vision is to become the most trusted Indian brand in ion exchange and water treatment solutions — known for <strong>performance</strong>, <strong>service</strong>, and <strong>sustainability</strong>.
+      </p>
+      <hr style="margin: 2rem auto; width: 60px; border: 2px solid #0066cc; border-radius: 10px;">
+      <h3 data-aos="fade-up" data-aos-delay="200" style="color: #003366; margin-bottom: 1rem;">Our Mission</h3>
+      <ul style="list-style: none; padding: 0; margin: 0 auto; max-width: 700px; text-align: left;" data-aos="fade-up" data-aos-delay="300">
+        <li style="margin-bottom: 1rem;"><i class="bi bi-check-circle-fill" style="color: #28a745; margin-right: 8px;"></i> Deliver high-quality and innovative chemical solutions that exceed customer expectations.</li>
+        <li style="margin-bottom: 1rem;"><i class="bi bi-check-circle-fill" style="color: #28a745; margin-right: 8px;"></i> Promote sustainability by adopting environmentally conscious manufacturing practices.</li>
+        <li style="margin-bottom: 1rem;"><i class="bi bi-check-circle-fill" style="color: #28a745; margin-right: 8px;"></i> Build long-term partnerships through trust, reliability, and service excellence.</li>
+        <li style="margin-bottom: 1rem;"><i class="bi bi-check-circle-fill" style="color: #28a745; margin-right: 8px;"></i> Expand our global footprint while contributing to the Indian chemical manufacturing ecosystem.</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <section class="cta-banner" style="background: linear-gradient(to right, #003366, #005fa3); color: #fff; padding: 4rem 2rem;">
+    <div style="max-width: 800px; margin: auto; text-align: center;">
+      <h2 data-aos="zoom-in"><i class="bi bi-rocket-takeoff"></i> Join Our Growth Story</h2>
+      <p data-aos="fade-up" data-aos-delay="100" style="font-size: 1.1rem; margin-top: 1rem;">
+        Whether you're a <strong>dealer</strong>, <strong>OEM</strong>, industrial end-user, or <strong>global distributor</strong> — partner with a reliable manufacturer committed to quality and long-term collaboration.
+      </p>
+      <ul data-aos="fade-up" data-aos-delay="200" style="list-style: none; padding: 0; margin: 2rem auto; max-width: 700px; text-align: left; color: #e0e0e0;">
+        <li style="margin-bottom: 1rem;"><i class="bi bi-check-circle-fill" style="color: #ffc107; margin-right: 8px;"></i> Wide product portfolio tailored for multiple industries</li>
+        <li style="margin-bottom: 1rem;"><i class="bi bi-check-circle-fill" style="color: #ffc107; margin-right: 8px;"></i> Fast logistics and flexible MOQs</li>
+        <li style="margin-bottom: 1rem;"><i class="bi bi-check-circle-fill" style="color: #ffc107; margin-right: 8px;"></i> Transparent business practices with full support</li>
+        <li style="margin-bottom: 1rem;"><i class="bi bi-check-circle-fill" style="color: #ffc107; margin-right: 8px;"></i> Strong branding and co-marketing opportunities</li>
+      </ul>
+      <a href="index.html#contact" class="btn" style="margin-top: 1rem; background: #fff; color: #003366; font-weight: 600; padding: 0.75rem 2rem; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <i class="bi bi-handshake"></i> Partner with Us
+      </a>
+    </div>
+  </section>
+
+  <footer class="custom-footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <img src="https://static.wixstatic.com/media/7479b5_9289dd1a7a104e46af46c0c4625e93f8~mv2.png" alt="Asha Resins Logo" class="footer-logo" />
+        <p>Delivering high-performance ion exchange resins and chemical solutions since 1996.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html#products">Our Products</a></li>
+            <li><a href="index.html#dealers">Become a Dealer</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Reach Us</h4>
+          <p><i class="bi bi-envelope"></i> <a href="mailto:sales@asharesins.com">sales@asharesins.com</a></p>
+          <p><i class="bi bi-telephone"></i> <a href="tel:+919146129932">+91 91461 29932</a></p>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <div class="footer-social">
+            <a href="https://www.linkedin.com/company/asha-resins-p.ltd" target="_blank">
+              <i class="bi bi-linkedin"></i> LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <p class="copyright">© 2025 Asha Resins Limited. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/919146129932" target="_blank">Chat with us</a>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>
