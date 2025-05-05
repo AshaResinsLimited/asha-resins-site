@@ -1,128 +1,766 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Asha Resins Ltd – Leading manufacturer of ion exchange resins and water treatment chemicals in India since 1996. Contact us for high-quality solutions.">
   <title>Asha Resins Limited | Ion Exchange Resin Manufacturer</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&amp;display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     html, body {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f4f4f4;
+}
+
+.hero-carousel {
+  position: relative;
+  overflow: hidden;
+  height: 40vh;
+  border-radius: 16px;
+  margin: 2rem auto;
+  max-width: 1400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 0;
+  animation: zoom-bg 30s ease-in-out infinite;
+}
+
+@keyframes zoom-bg {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.hero-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  color: #fff;
+  text-align: center;
+  max-width: 700px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.hero-content h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  background: #0066cc;
+  color: white;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #004d99;
+}
+
+.hero-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+.hero-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.hero-dot.active, .hero-dot:hover {
+  background: #0066cc;
+}
+
+header {
+  background: #003366;
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header h1 {
+  font-size: 1.8rem;
+}
+header a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #f0c040;
+}
+
+section {
+  padding: 4rem 2rem;
+  margin: 3rem auto; /* Adds spacing between sections */
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  max-width: 1200px;
+}
+
+@media (max-width: 768px) {
+  section {
+    margin: 2rem 1rem;
+    padding: 3rem 1.5rem;
+  }
+}
+
+
+section:nth-of-type(even) {
+  background: #f9fafc;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 3rem auto; /* Controls spacing between sections */
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #003366;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 2rem;
+  row-gap: 4rem; /* Increased vertical space between rows */
+  padding-bottom: 2rem;
+}
+
+/* Ensure all product cards have same height and spacing */
+.product {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+}
+
+.product img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.product h3 {
+  font-size: 1.2rem;
+  color: #003366;
+  margin-bottom: 0.5rem;
+}
+
+.product p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: auto;
+}
+
+.product .btn {
+  margin-top: 1.5rem;
+  align-self: center;
+  background: #0066cc;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.product .btn:hover {
+  background: #004d99;
+}
+
+
+.client-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.client-logos img {
+  max-height: 70px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.client-logos a:hover img {
+  transform: scale(1.05);
+}
+
+.testimonial {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  text-align: center;
+  font-style: italic;
+}
+
+.newsletter input[type="email"] {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 70%;
+  margin-right: 0.5rem;
+}
+
+.newsletter button {
+  padding: 0.6rem 1.5rem;
+  background: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact {
+  text-align: center;
+}
+
+.contact iframe {
+  width: 100%;
+  border: 0;
+  height: 300px;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.team-grid, .faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.team-member, .faq {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+footer {
+  background: #003366;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+margin-bottom: 80px;
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 0.8rem 1rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  z-index: 999; /* Keep it above everything else */
+}
+
+@media screen and (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 90px; /* Push up more on small screens */
+    right: 15px;
+  }
+}
+
+.features-section {
+  background: #fdfefe;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.feature-box {
+  background: #e6f0ff;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+  transition: transform 0.3s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-4px);
+}
+
+.feature-box h4 {
+  color: #003366;
+  margin-bottom: 0.5rem;
+}
+
+.certifications {
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.certification-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.certification-logos a {
+  display: inline-block;
+}
+
+.certification-logos img {
+  max-height: 80px;
+  width: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.certification-logos img:hover {
+  transform: scale(1.1);
+}
+
+.cta-banner {
+  background: linear-gradient(90deg, #0066cc, #004080);
+  color: white;
+  text-align: center;
+}
+
+.cta-banner h2 {
+  margin-bottom: 1rem;
+}
+
+.cta-banner a {
+  background: white;
+  color: #0066cc;
+  padding: 0.8rem 2rem;
+  font-weight: bold;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.cta-banner a:hover {
+  background: #e6e6e6;
+}
+
+.dealer-form {
+  max-width: 700px;
+  background: #fff;
+  padding: 2rem;
+  margin: auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  border-radius: 10px;
+}
+
+.dealer-form input,
+.dealer-form textarea,
+.dealer-form button {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.dealer-form button {
+  background: #0066cc;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dealer-form button:hover {
+  background: #004d99;
+}
+.custom-footer {
+  background-color: #1b2430; /* dark bluish-gray for modern and logo-friendly contrast */
+  color: #f0f0f0;
+  font-size: 0.95rem;
+  position: relative;
+  margin-top: 3rem;
+}
+
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-top {
+  text-align: center;
+}
+
+.footer-logo {
+  max-height: 60px;
+  margin-bottom: 1rem;
+}
+
+.footer-top p {
+  color: #ddd;
+  margin: 0 auto;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.footer-links div {
+  flex: 1;
+  min-width: 180px;
+}
+
+.footer-links h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  color: #003366;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-contact p, .footer-contact a {
+  color: #ccc;
+}
+
+.footer-social a {
+  color: #ccc;
+  font-size: 1.1rem;
+  text-decoration: none;
+  margin-right: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #f0c040;
+}
+
+footer hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 2rem 0 1rem;
+}
+
+footer .copyright {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.footer-logo {
+  max-height: 60px;
+  margin-bottom: 1rem;
+  filter: brightness(1.1);
+}
+
+.footer-links h4 {
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.footer-links a,
+.footer-contact a,
+.footer-social a {
+  color: #cccccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover,
+.footer-social a:hover {
+  color: #ff4d4d; /* red tone to match your logo */
+}
+.product .btn {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.5rem;
+  background: #0066cc;
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s ease;
+}
+
+.product .btn:hover {
+  background: #004c99;
+}
+html, body {
       scroll-behavior: smooth;
       margin: 0;
       padding: 0;
       overflow-x: hidden;
       font-family: 'Montserrat', sans-serif;
       background-color: #f4f4f4;
-      padding-top: 70px;
     }
-    header {
-      background: #003366;
-      color: #fff;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-    .mobile-menu-toggle {
-      display: none;
-      font-size: 2rem;
-      color: #fff;
-      cursor: pointer;
-    }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: #f0c040;
-    }
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      font-size: 2rem;
-      color: #0066cc;
+
+    section {
+      padding: 4rem 2rem;
+      margin: 3rem auto;
       background: #ffffff;
-      border-radius: 50%;
-      padding: 0.5rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      z-index: 999;
-      text-align: center;
-      transition: all 0.3s ease;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+      max-width: 1200px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    section[data-aos] {
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    section:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn {
+      background: #0066cc;
+      color: white;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      border-radius: 50px;
       text-decoration: none;
+      display: inline-block;
+      margin-top: 1rem;
+      transition: all 0.3s ease;
     }
-    .back-to-top:hover {
-      color: #004d99;
-      background: #f0f0f0;
+
+    .btn:hover {
+      background: #004d99;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
     }
+
+    .product {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    [data-aos] h2, [data-aos] p, [data-aos] h3, [data-aos] ul, [data-aos] li, [data-aos] a, [data-aos] .btn, [data-aos] img, [data-aos] div {
+      will-change: transform, opacity;
+    }
+
     @media (max-width: 768px) {
-      .mobile-menu-toggle {
-        display: block;
+      section {
+        margin: 2rem 1rem;
+        padding: 3rem 1.5rem;
       }
-      nav {
-        display: none;
+
+      .product {
+        height: auto;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .footer-links {
         flex-direction: column;
-        width: 100%;
-        background-color: #003366;
-        margin-top: 1rem;
-        padding: 1rem;
+        text-align: center;
       }
-      nav.active {
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
         display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1rem;
       }
-      .hero-carousel {
-        height: 50vh;
+
+      .features-grid,
+      .team-grid,
+      .faq-grid,
+      .client-logos {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
       }
-      .hero-content {
-        padding: 1.5rem;
-        max-width: 90%;
-      }
+
       .hero-content h2 {
-        font-size: 1.6rem;
+        font-size: 2rem;
       }
+
       .hero-content p {
         font-size: 1rem;
       }
+
       .btn {
-        font-size: 0.9rem;
         padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
       }
-      .back-to-top {
-        bottom: 140px;
-        font-size: 1.8rem;
+
+      .footer-links div {
+        text-align: center;
       }
-    }
   </style>
+
+<a href="#" class="back-to-top" aria-label="Back to top">
+  <i class="bi bi-arrow-up-circle-fill"></i>
+</a>
+
+<style>
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    font-size: 2rem;
+    color: #0066cc;
+    background: #ffffff;
+    border-radius: 50%;
+    padding: 0.5rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    z-index: 999;
+    text-align: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  .back-to-top:hover {
+    color: #004d99;
+    background: #f0f0f0;
+  }
+</style>
+</style>
 </head>
-<body>
+<body data-aos-easing="ease" data-aos-duration="600" data-aos-delay="0">
+  <!-- Header -->
   <header>
-    <h1><a href="#">Asha Resins Ltd</a></h1>
-    <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-      <i class="bi bi-list"></i>
-    </div>
+    <h1><a href="file:///Users/asharesins/Library/Mobile%20Documents/com~apple~TextEdit/Documents/asha.html">Asha Resins Ltd</a></h1>
     <nav>
-      <a href="#about">About</a>
-      <a href="#products">Products</a>
-      <a href="#dealers">Dealers</a>
+      <a href="file:///Users/asharesins/Library/Mobile%20Documents/com~apple~TextEdit/Documents/aboutus.html">About</a>
+      <a href="file:///Users/asharesins/Library/Mobile%20Documents/com~apple~TextEdit/Documents/products.html#product-range">Products</a>
       <a href="#clients">Clients</a>
       <a href="#testimonials">Testimonials</a>
+      <a href="#blogs">Blog</a>
       <a href="#faq">FAQs</a>
+      <a href="#dealers">Dealers</a>
       <a href="#contact">Contact</a>
+      <a href="#" onclick="openModal()">Enquire</a>
     </nav>
   </header>
 <!-- Rearranged sections based on priority: Hero > About > Products > Dealers > Clients > Testimonials > FAQ -->
