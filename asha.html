@@ -16,123 +16,6 @@
   font-family: 'Montserrat', sans-serif;
   background-color: #f4f4f4;
 }
-    .modern-hero-carousel {
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  animation: zoom-fade 20s ease-in-out infinite;
-  z-index: 0;
-}
-
-@keyframes zoom-fade {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.05);
-    opacity: 1;
-  }
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.3));
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 1.5rem;
-}
-
-.hero-text {
-  color: #fff;
-  max-width: 900px;
-  z-index: 2;
-  animation: fadeInUp 1.2s ease-out forwards;
-  opacity: 0;
-}
-
-.hero-text h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-.hero-text p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-  color: #e0e0e0;
-}
-
-.hero-text .btn {
-  background-color: #f0c040;
-  color: #003366;
-  padding: 0.8rem 2rem;
-  font-weight: bold;
-  border-radius: 30px;
-  font-size: 1rem;
-  transition: background 0.3s ease;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.hero-text .btn:hover {
-  background-color: #ffd369;
-}
-
-/* Animation */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive Typography */
-@media (max-width: 768px) {
-  .modern-hero-carousel {
-    height: 80vh;
-  }
-
-  .hero-text h1 {
-    font-size: 1.8rem;
-  }
-
-  .hero-text p {
-    font-size: 1rem;
-  }
-
-  .hero-text .btn {
-    padding: 0.6rem 1.5rem;
-    font-size: 0.95rem;
-  }
-}
-
 @media (max-width: 768px) {
   .products-grid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -969,18 +852,37 @@ html, body {
     </nav>
   </header>
 <!-- Rearranged sections based on priority: Hero > About > Products > Dealers > Clients > Testimonials > FAQ -->
-<section class="modern-hero-carousel">
-  <div class="hero-slide active" style="background-image: url('https://static.wixstatic.com/media/7479b5_fe4c3e69d750474784daf290c7270760~mv2.png');">
-    <div class="hero-overlay">
-      <div class="hero-text">
-        <h1>India’s Leading Ion Exchange Resin Manufacturer</h1>
-        <p>Trusted by industries since 1996 for performance-driven water treatment solutions.</p>
-        <a href="#products" class="btn">Explore Our Products</a>
-      </div>
+<section class="hero-carousel" aria-label="Banner Carousel">
+  <div class="hero-slide" style="background-image: url('https://static.wixstatic.com/media/7479b5_b9b2e0b4c4454f5c8f569b6dbc925dd1~mv2.png');">
+    <div class="hero-content">
+      <h2>Innovative Chemistry. Trusted Performance.</h2>
+      <p>Delivering world-class water treatment and resin solutions since 1996.</p>
+      <a href="#contact" class="btn">Get in Touch</a>
     </div>
   </div>
-</section>
 
+  <div class="hero-slide active" style="background-image: url('https://static.wixstatic.com/media/7479b5_fe4c3e69d750474784daf290c7270760~mv2.png');">
+    <div class="hero-content">
+      <h2>India’s Leading Ion Exchange Resins Manufacturer</h2>
+      <p>Premium ion exchange resins, RO chemicals &amp; process additives tailored for every industry.</p>
+      <a href="file:///Users/asharesins/Library/Mobile%20Documents/com~apple~TextEdit/Documents/aboutus.html" class="btn">View Our Products</a>
+    </div>
+  </div>
+
+  <div class="hero-slide" style="background-image: url('https://static.wixstatic.com/media/7479b5_378cba523e4447ea9fa04867820c52f2~mv2.jpeg');">
+    <div class="hero-content">
+      <h2>Engineered for Excellence</h2>
+      <p>ISO 9001:2015 certified facility with global quality standards and in-house R&amp;D.</p>
+      <a href="#clients" class="btn">Trusted By Industry Leaders</a>
+    </div>
+  </div>
+
+  <div class="hero-dots">
+    <div class="hero-dot" onclick="goToSlide(0)"></div>
+    <div class="hero-dot active" onclick="goToSlide(1)"></div>
+    <div class="hero-dot" onclick="goToSlide(2)"></div>
+  </div>
+</section>
 
 
 <!-- Modernized Sections with Enhanced Backgrounds and Consistent Styling -->
