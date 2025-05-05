@@ -16,6 +16,59 @@
   font-family: 'Montserrat', sans-serif;
   background-color: #f4f4f4;
 }
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .product img {
+    height: 160px;
+  }
+}
+body {
+  padding-top: 70px;
+}
+@media (max-width: 480px) {
+  .whatsapp-float {
+    bottom: 100px;
+    font-size: 0.9rem;
+  }
+
+  .back-to-top {
+    bottom: 140px;
+    font-size: 1.8rem;
+  }
+}
+input, textarea, button {
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+
+  @media (max-width: 768px) {
+.hero-carousel {
+  height: 50vh;
+}
+
+.hero-content {
+  padding: 1.5rem;
+  max-width: 90%;
+}
+
+.hero-content h2 {
+  font-size: 1.6rem;
+}
+
+.hero-content p {
+  font-size: 1rem;
+}
+
+.btn {
+  font-size: 0.9rem;
+  padding: 0.6rem 1.2rem;
+}
+}
+
 
 .hero-carousel {
   position: relative;
@@ -744,10 +797,45 @@ html, body {
     color: #004d99;
     background: #f0f0f0;
   }
+  .mobile-menu-toggle {
+  display: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    background: #003366;
+    width: 100%;
+    padding: 1rem 2rem;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav a {
+    margin: 0.5rem 0;
+  }
+}
+
 </style>
 </style>
 </head>
 <body data-aos-easing="ease" data-aos-duration="600" data-aos-delay="0">
+  <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+  <i class="bi bi-list"></i>
+</div>
   <!-- Header -->
   <header>
     <h1><a href="file:///Users/asharesins/Library/Mobile%20Documents/com~apple~TextEdit/Documents/asha.html">Asha Resins Ltd</a></h1>
@@ -1144,6 +1232,10 @@ html, body {
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
+    function toggleMobileMenu() {
+  document.querySelector("nav").classList.toggle("active");
+}
+
     AOS.init({
       once: true,
       duration: 800,
