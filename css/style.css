@@ -218,88 +218,69 @@ body {
 .hero-slider {
   position: relative;
   width: 100%;
-  background: linear-gradient(-45deg, #d0f0ff, #a0d8ef, #cceeff, #e6f4ff);
-  background-size: 400% 400%;
-  animation: flowingWater 15s ease infinite;
-  z-index: 0;
+  height: 70vh;
   overflow: hidden;
 }
 
-@keyframes flowingWater {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-
 .hero-slide {
+  position: absolute;
   width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
   display: none;
-  position: relative;
-  z-index: 1;
+  animation: fadeSlide 1s ease-in-out;
 }
 
 .hero-slide.active {
   display: block;
-}
-
-/* === Inner Container === */
-.hero-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 40px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  position: relative;
-  z-index: 1;
-  background: none;
-  color: #333;
-}
-
-.hero-text {
-  flex: 1 1 500px;
   z-index: 2;
-  animation: fadeIn 1s ease-out forwards;
 }
 
-.hero-text h1 {
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 600;
-  color: #004aad;
+.hero-overlay {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(0, 40, 80, 0.7), rgba(0, 74, 173, 0.5));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 30px;
+  text-align: center;
+  animation: waterFlow 15s ease-in-out infinite;
+}
+
+.hero-content {
+  color: #fff;
+  max-width: 800px;
+  animation: fadeIn 1s ease-out;
+}
+
+.hero-content h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
   margin-bottom: 20px;
-  line-height: 1.3;
+  line-height: 1.2;
 }
 
-.hero-text p {
+.hero-content p {
   font-size: clamp(1rem, 2vw, 1.2rem);
-  color: #555;
   margin-bottom: 30px;
-  line-height: 1.6;
+  color: #e6f0ff;
 }
 
-/* === Buttons === */
 .hero-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  justify-content: center;
 }
 
 .hero-buttons a {
   padding: 12px 24px;
   border-radius: 6px;
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
-  transition: background-color 0.3s ease;
   white-space: nowrap;
+  transition: 0.3s ease;
 }
 
 .btn-primary {
@@ -308,89 +289,69 @@ body {
 }
 
 .btn-primary:hover {
-  background-color: #003580;
+  background-color: #003380;
 }
 
 .btn-secondary {
-  background-color: #e5e5e5;
-  color: #333;
+  background-color: #fff;
+  color: #004aad;
 }
 
 .btn-secondary:hover {
-  background-color: #d4d4d4;
+  background-color: #e5e5e5;
 }
 
-/* === Image === */
-.hero-image {
-  flex: 1 1 400px;
-  text-align: center;
-  max-width: 100%;
-}
-
-.hero-image img {
-  width: 100%;
-  height: auto;
-  max-width: 480px;
-  border-radius: 10px;
-  object-fit: contain;
-  display: block;
-}
-
-/* === Slider Dots === */
+/* === Dots === */
 .slider-dots {
-  text-align: center;
-  padding: 16px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
 }
 
 .slider-dots span {
-  display: inline-block;
   width: 10px;
   height: 10px;
   background: #ccc;
   border-radius: 50%;
-  margin: 0 6px;
+  margin: 0 5px;
+  display: inline-block;
   cursor: pointer;
   transition: background 0.3s;
 }
 
 .slider-dots span.active {
-  background: #004aad;
+  background: #fff;
 }
 
-/* === Responsive: Mobile === */
+/* === Animations === */
+@keyframes fadeSlide {
+  from { opacity: 0; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes waterFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* === Responsive === */
 @media (max-width: 768px) {
-  .hero-inner {
-    flex-direction: column;
-    text-align: center;
-    padding: 60px 20px;
-    background-color: #000;
-    min-height: 60vh;
-    color: #fff;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  .hero-overlay {
+    padding: 40px 20px;
   }
 
-  .hero-slide.active .hero-inner::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 1;
-  }
-
-  .hero-text h1 {
+  .hero-content h1 {
     font-size: 1.8rem;
-    color: #fff;
   }
 
-  .hero-text p {
+  .hero-content p {
     font-size: 1rem;
-    color: #eee;
   }
 
   .hero-buttons {
-    justify-content: center;
     flex-direction: column;
   }
 
@@ -398,45 +359,7 @@ body {
     width: 100%;
     text-align: center;
   }
-
-  .hero-image {
-    display: none !important;
-  }
 }
-
-/* === Responsive: Tablet === */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .hero-inner {
-    padding: 60px 30px;
-    gap: 30px;
-  }
-
-  .hero-text h1 {
-    font-size: 2rem;
-  }
-
-  .hero-text p {
-    font-size: 1rem;
-  }
-
-  .hero-buttons a {
-    padding: 10px 20px;
-    font-size: 0.95rem;
-  }
-
-  .hero-image img {
-    max-width: 360px;
-  }
-}
-
-/* === Animation === */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-
-
 
 
 
@@ -865,7 +788,6 @@ body {
 }
 
 
-/* === Testimonials === */
 .testimonials {
   padding: 80px 20px;
   background-color: #ffffff;
@@ -891,8 +813,10 @@ body {
   border-radius: 10px;
   padding: 30px 20px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  position: relative;
   text-align: left;
+  scroll-snap-align: center;
+  flex: 0 0 100%;
+  box-sizing: border-box;
 }
 
 .testimonial-card i.bi-chat-quote-fill {
@@ -920,6 +844,60 @@ body {
   font-size: 1.2rem;
   color: #004aad;
 }
+
+/* Carousel */
+.testimonial-carousel-wrapper {
+  display: none;
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  margin-top: 30px;
+}
+
+.testimonial-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+.testimonial-carousel .testimonial-card {
+  min-width: 100%;
+  max-width: 100%;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.carousel-dots button {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carousel-dots button.active {
+  background-color: #004aad;
+}
+
+@media (max-width: 768px) {
+  .testimonial-grid {
+    display: none;
+  }
+  .testimonial-carousel-wrapper {
+    display: block;
+  }
+}
+
+
 
 /* === Blog Section === */
 .blog-section {
