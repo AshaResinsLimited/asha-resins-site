@@ -21,6 +21,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <!-- Favicon -->
   <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
@@ -28,7 +29,6 @@
 
 <body>
  <main>
-  <!-- Header -->
   <!-- Header -->
 <header class="site-header">
   <div class="site-site-header">
@@ -76,110 +76,121 @@
     parent.classList.toggle("active");
   }
 </script>
-<main>
-	<body>
-<!-- Hero Section: Ion Exchange Resins -->
-<section class="hero-oil">
-  <div class="hero-content">
-    <h1>Specialty Oil Field Chemicals</h1>
-    <p>Optimized for upstream and downstream applications, our chemical solutions enhance oil recovery, flow assurance, and operational efficiency.</p>
-    <div class="hero-buttons">
-      <a href="#resin-products" class="btn-primary">Explore Product Range</a>
-      <a href="contact.html" class="btn-secondary">Request a Quote</a>
-    </div>
-  </div>
-</section>
-
-
-<section class="ashaion-product-section" id="ashaion-9780-deoiler">
+<!-- === Blog Hero Section === -->
+<section class="blog-hero" id="blog-hero">
   <div class="container">
-    <h2 class="section-title">ASHAION 9780 Deoiler</h2>
+    <h2 class="section-title">Asha Resins Blog</h2>
     <p class="section-subtitle">
-      A specialized formulation designed to remove oil and grease from industrial effluents and process water with high efficiency.
+      Discover insights, industry trends, and expert knowledge in water treatment, ion exchange resins, and specialty chemicals. Stay informed and empowered with our latest articles.
     </p>
 
-    <div class="product-info-box">
-      <h4>Key Features</h4>
-      <ul>
-        <li>Effective oil separation in wastewater treatment systems</li>
-        <li>Improves clarity and reduces COD/BOD levels</li>
-        <li>Non-toxic and eco-friendly formulation</li>
-        <li>Compatible with conventional treatment processes</li>
-      </ul>
-
-      <div class="card-actions">
-        <a href="assets/brochures/ashaion-9780-brochure.pdf" class="btn-card" download>Download Brochure</a>
-        <a href="assets/tds/ashaion-9780-tds.pdf" class="btn-card-outline" download>Download TDS</a>
-      </div>
+    <!-- Blog Search Bar -->
+    <div class="blog-search">
+      <input type="text" id="blogSearch" placeholder="Search blog articles..." oninput="filterBlogs()" />
+      <button class="btn-search" onclick="filterBlogs()">
+        <i class="bi bi-search"></i>
+      </button>
     </div>
   </div>
 </section>
 
-<section class="applications-section" id="applications">
+<!-- === Blog List Section (Dynamic) === -->
+<section class="blog-list" id="blog-list">
   <div class="container">
-    <h2 class="section-title">Applications</h2>
-    <p class="section-subtitle">
-      ASHAION 9780 Deoiler is trusted for efficient oil removal across diverse industries.
-    </p>
-
-    <div class="industry-grid">
-      <div class="industry-card">
-        <i class="bi bi-fuel-pump"></i> Oil Refineries
-      </div>
-      <div class="industry-card">
-         Textile Processing Units
-      </div>
-      <div class="industry-card">
-        <i class="bi bi-truck-front-fill"></i> Automobile Manufacturing
-      </div>
-      <div class="industry-card">
-        <i class="bi bi-droplet-half"></i> Petrochemical Plants
-      </div>
-      <div class="industry-card">
-        <i class="bi bi-cup-straw"></i> Food & Beverage Industries
-      </div>
-      <div class="industry-card">
-        <i class="bi bi-recycle"></i> Effluent Treatment Plants (ETP)
-      </div>
+    <div class="blog-search">
+      <input type="text" id="blogSearch" placeholder="Search blog articles..." oninput="filterBlogs()" />
+      <button class="btn-search" onclick="filterBlogs()">
+        <i class="bi bi-search"></i>
+      </button>
     </div>
-  </div>
-</section>
-<section class="features-section">
-  <div class="container">
-    <h2 class="section-title">Key Features</h2>
-    <div class="features-grid">
-      <div class="feature-card">
-        <i class="bi bi-droplet-fill"></i>
-        <p>Efficient removal of free and dispersed oil from effluents</p>
-      </div>
-      <div class="feature-card">
-        <i class="bi bi-check2-circle"></i>
-        <p>Compatible with various effluent compositions and pH levels</p>
-      </div>
-      <div class="feature-card">
-        <i class="bi bi-shield-check"></i>
-        <p>Helps reduce COD/BOD values and improves clarity</p>
-      </div>
-      <div class="feature-card">
-        <i class="bi bi-recycle"></i>
-        <p>Supports sustainable water recycling practices in industries</p>
-      </div>
+
+    <div class="category-filter">
+      <button class="filter-btn active" data-category="all" onclick="filterByCategory('all')">All</button>
+      <button class="filter-btn" data-category="Water Treatment" onclick="filterByCategory('Water Treatment')">Water Treatment</button>
+      <button class="filter-btn" data-category="Ion Exchange Resins" onclick="filterByCategory('Ion Exchange Resins')">Ion Exchange Resins</button>
+      <button class="filter-btn" data-category="Certifications" onclick="filterByCategory('Certifications')">Certifications</button>
+    </div>
+
+    <div class="blog-grid" id="blogGrid">
+      <!-- Blogs will be dynamically loaded here -->
     </div>
   </div>
 </section>
 
-<section class="final-cta" id="get-in-touch">
-  <div class="container">
-    <h2>Looking for Reliable Deoiling Performance?</h2>
-    <p>
-      Connect with our team today to learn more about ASHAION® 9780 and how it can enhance your effluent treatment process.
-    </p>
-    <div class="cta-buttons">
-      <a href="contact.html" class="btn-primary">Get in Touch</a>
-      <a href="assets/docs/ashaion-9780-tds.pdf" class="btn-secondary" download>Download TDS</a>
-    </div>
-  </div>
-</section>
+<script>
+  // Load Blogs from JSON
+  document.addEventListener("DOMContentLoaded", loadBlogs);
+
+  async function loadBlogs() {
+    const response = await fetch("blogs.json");
+    const blogs = await response.json();
+    displayBlogs(blogs);
+  }
+
+  // Display Blogs in Blog Grid
+  function displayBlogs(blogs) {
+    const blogGrid = document.getElementById("blogGrid");
+    blogGrid.innerHTML = "";
+
+    blogs.forEach(blog => {
+      const blogCard = `
+        <div class="blog-card" data-category="${blog.category}">
+          <img src="${blog.image}" alt="${blog.title}" />
+          <div class="blog-content">
+            <h3><a href="${blog.link}">${blog.title}</a></h3>
+            <p>${blog.description}</p>
+            <a href="${blog.link}" class="read-more">Read More →</a>
+          </div>
+        </div>
+      `;
+      blogGrid.innerHTML += blogCard;
+    });
+  }
+
+  // Search Blogs by Title or Description
+  function filterBlogs() {
+    const searchInput = document.getElementById("blogSearch").value.toLowerCase();
+    const blogCards = document.querySelectorAll(".blog-card");
+
+    blogCards.forEach((card) => {
+      const title = card.querySelector("h3").textContent.toLowerCase();
+      const description = card.querySelector("p").textContent.toLowerCase();
+      
+      if (title.includes(searchInput) || description.includes(searchInput)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  }
+
+  // Filter Blogs by Category
+  function filterByCategory(category) {
+    const blogCards = document.querySelectorAll(".blog-card");
+    const filterBtns = document.querySelectorAll(".filter-btn");
+
+    // Update Active Category Button
+    filterBtns.forEach(btn => {
+      btn.classList.remove("active");
+      if (btn.getAttribute("data-category") === category) {
+        btn.classList.add("active");
+      }
+    });
+
+    // Display Blogs Based on Category
+    blogCards.forEach((card) => {
+      if (category === "all" || card.getAttribute("data-category") === category) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  }
+</script>
+
+
+
+
 
 		<!-- Footer -->
 <footer class="site-footer">
@@ -349,6 +360,17 @@
     "https://www.linkedin.com/company/asha-resins-p.ltd"
   ]
 }
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    AOS.init({
+      duration: 800, // Animation duration
+      once: true,    // Animation occurs only once
+      offset: 100,   // Animation starts 100px before element is in view
+    });
+  });
 </script>
 
 

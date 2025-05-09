@@ -28,34 +28,55 @@
 
 <body>
  <main>
-  <!-- Header -->
-  <header class="site-header">
-    <div class="site-site-header">
-      <div class="logo">
-        <a href="index.html">
-          <img src="assets/images/asha-logo.svg" alt="Asha Resins Logo" />
-        </a>
-      </div>
-
-      <div class="menu-wrap">
-        <div id="hamburger" class="hamburger">
-          <span></span><span></span><span></span>
-        </div>
-        <nav id="nav-menu" class="nav-menu">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="industries.html">Industries</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="distributors.html">Distributors</a></li>
-            <li><a href="resources.html">Resources</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
+<!-- Header -->
+<header class="site-header">
+  <div class="site-site-header">
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/images/asha-logo.svg" alt="Asha Resins Logo" />
+      </a>
     </div>
-  </header>
+
+    <div class="menu-wrap">
+      <div id="hamburger" class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+      <nav id="nav-menu" class="nav-menu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="products.html" onclick="toggleDropdown(event)">Products 
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="ion-exchange-resins.html">Ion Exchange Resins</a></li>
+              <li><a href="water-treatment-chemicals.html">Water Treatment Chemicals</a></li>
+              <li><a href="sugar-process-chemicals.html">Sugar Process Chemicals</a></li>
+              <li><a href="oil-field-chemicals.html">Oil Field Chemicals</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="about.html">About</a></li>
+          <li class="dropdown"><a href="industries.html">Industries</a></li>
+          <li class="dropdown"><a href="distributors.html">Distributors</a></li>
+          <li class="dropdown"><a href="resources.html">Resources</a></li>
+          <li class="dropdown"><a href="blog.html">Blog</a></li>
+          <li class="dropdown"><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+
+<script>
+  function toggleDropdown(event) {
+    event.preventDefault();
+    const parent = event.target.closest(".dropdown");
+    parent.classList.toggle("active");
+  }
+</script>
+
+
 
 
 
