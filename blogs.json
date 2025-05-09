@@ -1,30 +1,29 @@
 [
   {
+    "id": 1,
     "title": "5 Essential Water Treatment Tips for Industries",
     "description": "Learn how to ensure efficient water treatment for your industrial applications with these essential tips.",
     "image": "assets/images/blog/blog-1.jpg",
-    "link": "blog-detail.html",
-    "category": "Water Treatment"
+    "link": "blog-detail.html?blog=1",
+    "category": "Water Treatment",
+    "content": "<p>Water is essential in industries, but maintaining water quality is crucial. Here are 5 tips to ensure efficient water treatment:</p><ul><li>Regularly test water quality.</li><li>Use the right chemicals for treatment.</li><li>Monitor system pressure and flow rates.</li><li>Implement proper filtration methods.</li><li>Conduct routine maintenance.</li></ul>"
   },
   {
+    "id": 2,
     "title": "Understanding Ion Exchange Resins: A Complete Guide",
     "description": "An in-depth look at ion exchange resins, their types, and how they are used in various industries.",
     "image": "assets/images/blog/blog-2.jpg",
-    "link": "blog-detail.html",
-    "category": "Ion Exchange Resins"
+    "link": "blog-detail.html?blog=2",
+    "category": "Ion Exchange Resins",
+    "content": "<p>Ion exchange resins are used to remove unwanted ions from water and replace them with desirable ones. They are widely used in water softening, demineralization, and other industrial processes.</p><p>This guide explains the different types of resins, their applications, and how to choose the right one for your needs.</p>"
   },
   {
+    "id": 3,
     "title": "Why Product Quality Certifications Matter",
     "description": "Explore the importance of product quality certifications in the chemical industry and how Asha Resins ensures quality.",
     "image": "assets/images/blog/blog-3.jpg",
-    "link": "blog-detail.html",
-    "category": "Certifications"
-  },
-  {
-    "title": "Best Practices for RO Chemicals in Water Treatment",
-    "description": "Discover the best practices for using RO chemicals in water treatment systems.",
-    "image": "assets/images/blog/blog-4.jpg",
-    "link": "blog-detail.html",
-    "category": "Water Treatment"
+    "link": "blog-detail.html?blog=3",
+    "category": "Certifications",
+    "content": "<p>Quality certifications are a mark of trust and reliability. At Asha Resins, we maintain strict quality standards, ensuring our products meet international certifications and customer expectations.</p>"
   }
 ]
